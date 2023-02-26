@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#falling-lines {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: black;
+}
+
+.falling-line {
+  position: absolute;
+  width: 1px;
+  height: 100px;
+  background: white;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-200px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
