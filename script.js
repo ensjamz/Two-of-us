@@ -1,4 +1,5 @@
 const linesContainer = document.getElementById('falling-lines');
+let isRunning = false;
 
 function createLine() {
   const line = document.createElement('div');
@@ -13,13 +14,23 @@ for (let i = 0; i < 100; i++) {
 }
 
 document.addEventListener('click', (event) => {
-  if (event.target === linesContainer) {
+  if (event.target === linesContainer && !isRunning) {
     const letters = ['E', 'N', 'S'];
     let counter = 0;
+    isRunning = true;
     linesContainer.childNodes.forEach((line) => {
       setTimeout(() => {
         line.innerHTML = letters[counter];
         counter = (counter + 1) % letters.length;
+        if (counter === 0) {
+          // Pause for 10 seconds after the word "ENS" is spelled out
+          setTimeout(() => {
+            linesContainer.childNodes.forEach((line) => {
+              line.innerHTML = '';
+            });
+            isRunning = false;
+          }, 10000);
+        }
       }, Math.random() * 1000);
     });
   }
