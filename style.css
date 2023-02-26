@@ -11,24 +11,60 @@ body {
   left: 0;
   z-index: -1;
   background: black;
+  animation: falling-lines 20s linear infinite;
 }
 
-.falling-line {
+@keyframes falling-lines {
+  from {
+    background-position: 0% -100%;
+  }
+  to {
+    background-position: 0% 100%;
+  }
+}
+
+#falling-lines::before, #falling-lines::after {
+  content: "";
+  display: block;
   position: absolute;
-  width: 1px;
-  height: 100px;
-  background: white;
-  animation-name: fall;
-  animation-duration: 8s; /* Increase or decrease this value to adjust the animation speed */
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  line-height: 200px;
+  color: rgba(255,255,255,0.05);
 }
 
-@keyframes fall {
-  0% {
-    transform: translateY(-200px) rotate(0deg);
+#falling-lines::before {
+  background: linear-gradient(to bottom, transparent 50%, rgba(255,255,255,0.05) 50%);
+  background-size: 100% 50%;
+  background-position: 0% 0%;
+  animation: falling-lines-before 20s linear infinite;
+}
+
+@keyframes falling-lines-before {
+  from {
+    background-position: 0% -200%;
   }
-  100% {
-    transform: translateY(100vh) rotate(360deg);
+  to {
+    background-position: 0% 100%;
   }
 }
+
+#falling-lines::after {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.05) 50%, transparent 50%);
+  background-size: 100% 50%;
+  background-position: 0% 100%;
+  animation: falling-lines-after 20s linear infinite;
+}
+
+@keyframes falling-lines-after {
+  from {
+    background-position: 0% -100%;
+  }
+  to {
+    background-position: 0% 200%;
+  }
+}
+
