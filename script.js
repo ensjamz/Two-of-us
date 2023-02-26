@@ -5,7 +5,7 @@ function createLine() {
   const line = document.createElement('div');
   line.classList.add('falling-line');
   line.style.left = Math.random() * 100 + '%';
-  line.style.animationDelay = Math.random() * 10 + 's';
+  line.style.animationDelay = Math.random() * 100 + 's';
   linesContainer.appendChild(line);
 }
 
