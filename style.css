@@ -18,6 +18,10 @@ body {
   width: 1px;
   height: 100px;
   background: white;
+  animation-name: fall;
+  animation-duration: 8s; /* Increase or decrease this value to adjust the animation speed */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 @keyframes fall {
