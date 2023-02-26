@@ -61,10 +61,10 @@ body {
 
 @keyframes falling-lines-after {
   from {
-    background-position: 0% -100%;
+    background-position: 25% -100%;
   }
   to {
-    background-position: 0% 200%;
+    background-position: 52% 200%;
   }
 }
 
